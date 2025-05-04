@@ -12,7 +12,7 @@ const cors = require("cors")
 
 app.use(cookieParser())
 app.use(cors({
-    origin: ['http://localhost:3000', 'https://dovault-frontend.onrender.com'],
+    origin: ['http://localhost:5173/', 'https://dovault-frontend.onrender.com'],
     credentials: true
   }));
 app.use(express.json())
