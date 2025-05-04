@@ -13,6 +13,7 @@
   "description": "",
   "dependencies": {
     "@tailwindcss/vite": "^4.1.5",
+    "bcryptjs": "^3.0.2",
     "concurrently": "^9.1.2",
     "cors": "^2.8.5",
     "react-font": "^1.2.1",
