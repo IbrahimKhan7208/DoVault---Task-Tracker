@@ -18,7 +18,7 @@ const Task = () => {
 
   const submitHandler = async (e)=>{
     e.preventDefault()
-    let res = await axios.post(`https://dovault-task-tracker.onrender.com/api/tasks/addTask/${project._id}`, form)
+    let res = await axios.post(`https://dovault-task-tracker.onrender.com/api/tasks/addTask/${project._id}`, form, { withCredentials: true })
     setform({taskTitle:"", taskDescription:""})
   }
 
