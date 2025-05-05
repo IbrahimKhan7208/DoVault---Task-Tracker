@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {useNavigate} from "react-router-dom"
 import CountryDropdown from '../components/CountryDropdown'
-import axios from "axios"
+import axios from "../axiosConfig";
 import Font from 'react-font'
 
 
@@ -17,7 +17,7 @@ const Signup = () => {
     const submitHandler = async (e)=>{
       e.preventDefault()
       try {
-        const res = await axios.post('https://dovault-task-tracker.onrender.com/api/users/signup', form, {withCredentials: true});
+        const res = await axios.post('/api/users/signup', form, {withCredentials: true});
         if (res.data.error){
           alert(res.data.error) 
         }

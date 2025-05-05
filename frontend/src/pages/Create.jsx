@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Background from "../components/Background";
 import Header from "../components/Header";
-import axios from "axios"
+import axios from "../axiosConfig";
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const Create = () => {
@@ -16,7 +16,7 @@ const Create = () => {
 
   const submitHandler = async (e)=>{
     e.preventDefault()
-    let res = await axios.post('https://dovault-task-tracker.onrender.com/api/projects/createProject', form, { withCredentials: true })
+    let res = await axios.post('/api/projects/createProject', form, { withCredentials: true })
     console.log(res.data)
     navigate('/home')
   }

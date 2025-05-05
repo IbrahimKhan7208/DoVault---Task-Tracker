@@ -1,7 +1,7 @@
 import { createRoot } from 'react-dom/client'
 import {BrowserRouter} from 'react-router-dom'
 import './index.css'
-import './axiosConfig.js';
+import axios from "./axiosConfig.js";
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(

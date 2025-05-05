@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { MdExpandMore } from "react-icons/md";
 import { MdExpandLess } from "react-icons/md";
-import axios from "axios";
+import axios from "../axiosConfig";
 import { useNavigate } from "react-router-dom";
 
 const Cards = ({ project, updateProjects }) => {
@@ -16,7 +16,7 @@ const Cards = ({ project, updateProjects }) => {
   const deleteProjectHandler = async () => {
     try {
       if (confirm("Do you want delete this Project?") == true) {
-        await axios.post(`https://dovault-task-tracker.onrender.com/api/projects/deleteProject/${project._id}`, { withCredentials: true });
+        await axios.post(`/api/projects/deleteProject/${project._id}`, { withCredentials: true });
         updateProjects(project._id);
         navigate("/home");
         }

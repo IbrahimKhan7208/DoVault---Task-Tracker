@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {useNavigate} from "react-router-dom"
-import axios from "axios"
+import axios from "../axiosConfig";
 import Font from 'react-font'
 
 const Login = () => {
@@ -13,7 +13,7 @@ const Login = () => {
 
   const submitHandler = async (e)=>{
     e.preventDefault()
-    const res = await axios.post('https://dovault-task-tracker.onrender.com/api/users/login', form, { withCredentials: true })
+    const res = await axios.post('/api/users/login', form, { withCredentials: true })
     if (res.data.error) {
       console.error(res.data.error);
       alert(res.data.error);

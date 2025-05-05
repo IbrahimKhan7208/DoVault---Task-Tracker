@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "../axiosConfig";
 import { useNavigate } from "react-router-dom";
 import { RiAddLargeFill } from "react-icons/ri";
 import Background from "../components/Background";
@@ -19,14 +19,14 @@ const Home = () => {
   };
 
   const createHandler = async () => {
-    let res = await axios.get("https://dovault-task-tracker.onrender.com/api/projects/createPage", { withCredentials: true });
+    let res = await axios.get("/api/projects/createPage", { withCredentials: true });
     console.log("Data ka Response", res.data);
     navigate("/create", { state: res.data });
   };
 
   useEffect(() => {
     const details = async () => {
-      let res = await axios.get("https://dovault-task-tracker.onrender.com/api/tasks/projectDetail", { withCredentials: true });
+      let res = await axios.get("/api/tasks/projectDetail", { withCredentials: true });
       setProjects(res.data);
       console.log(res.data);
     };
@@ -35,7 +35,7 @@ const Home = () => {
 
   useEffect(() => {
     (async () => {
-      let res = await axios.get("https://dovault-task-tracker.onrender.com/api/users/home", { withCredentials: true });
+      let res = await axios.get("/api/users/home", { withCredentials: true });
       if (res.data.error) {
         navigate("/login");
       }

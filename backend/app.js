@@ -10,19 +10,15 @@ const projectRoutes = require('./routes/projectRoute')
 const taskRoutes = require('./routes/taskRoute')
 const cookieParser = require('cookie-parser')
 const cors = require("cors")
+const path = require('path')
 
 app.use(cookieParser())
-
-const allowedOrigins = [
-  'https://dovault-task-tracker-fe.onrender.com',
-  'http://localhost:5173'
-];
-
+  
 app.use(cors({
-  origin: allowedOrigins,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  origin: true,
   credentials: true,
-}));  
+}));
+
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
@@ -30,6 +26,15 @@ app.use(express.urlencoded({extended: true}))
 app.use('/api/users', userRoutes)
 app.use('/api/projects', projectRoutes)
 app.use('/api/tasks', taskRoutes)
+
+import { fileURLToPath } from 'url';
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+});
 
 app.listen(port , (req, res)=>{
     connectDB()
