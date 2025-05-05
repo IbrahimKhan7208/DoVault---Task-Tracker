@@ -29,9 +29,10 @@ app.use('/api/tasks', taskRoutes)
 
 app.use(express.static(path.join(__dirname, 'frontend/dist')))
 
+const indexPath = path.resolve(__dirname, 'frontend', 'dist', 'index.html');
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend/dist/index.html'))
-})
+  res.sendFile(indexPath);
+});
 
 app.listen(port , (req, res)=>{
     connectDB()
