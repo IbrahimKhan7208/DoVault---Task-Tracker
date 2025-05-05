@@ -12,10 +12,17 @@ const cookieParser = require('cookie-parser')
 const cors = require("cors")
 
 app.use(cookieParser())
+
+const allowedOrigins = [
+  'https://dovault-task-tracker-fe.onrender.com',
+  'http://localhost:5173'
+];
+
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://dovault-task-tracker-fe.onrender.com'],
-  credentials: true
-}));
+  origin: allowedOrigins,
+  credentials: true,
+}));  
+
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
