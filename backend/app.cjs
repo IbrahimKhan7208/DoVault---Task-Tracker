@@ -12,14 +12,12 @@ const cookieParser = require('cookie-parser')
 const cors = require("cors")
 const path = require('path')
 
-app.use(cookieParser())
-  
+app.use(cookieParser())    
 app.use(cors({
   origin: true,
   credentials: true,
 }));
-
-
+  
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
@@ -27,15 +25,17 @@ app.use('/api/users', userRoutes)
 app.use('/api/projects', projectRoutes)
 app.use('/api/tasks', taskRoutes)
 
-const staticPath = path.join(__dirname, 'frontend', 'dist');
+const __dirname = path.resolve();
+
+const staticPath = path.join(__dirname, '../frontend/dist');
+
 app.use(express.static(staticPath));
 
-app.get('/*', (req, res) => {
+app.get("*", (req, res) => {
   res.sendFile(path.join(staticPath, 'index.html'));
 });
 
-
-app.listen(port , (req, res)=>{
-    connectDB()
-    console.log("Server Running")
-})
+app.listen(port, () => {
+  connectDB()
+  console.log(`Server Running on port ${port}`)
+});
