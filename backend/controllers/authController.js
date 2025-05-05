@@ -20,10 +20,10 @@ const userSignup = async (req, res) => {
       country,
     });
     let token = jwt.sign({ email: req.body.email}, process.env.SECRET);
-    res.cookie('token', token, {
+    res.cookie("token", token, {
       httpOnly: true,
-      secure: true, // 🔥 required on Render (https)
-      sameSite: 'None', // 🔥 required for cross-origin cookies
+      secure: true,
+      sameSite: "None",
     });
     res.json(user);
 });
@@ -37,10 +37,10 @@ const userLogin = async (req, res) => {
   bcrypt.compare(req.body.password, user.password, function(err, result) {
     if(result){
       let token = jwt.sign({ email: req.body.email}, process.env.SECRET);
-      res.cookie('token', token, {
+      res.cookie("token", token, {
         httpOnly: true,
-        secure: true, // 🔥 required on Render (https)
-        sameSite: 'None', // 🔥 required for cross-origin cookies
+        secure: true,
+        sameSite: "None",
       });
       res.json(user);
     }

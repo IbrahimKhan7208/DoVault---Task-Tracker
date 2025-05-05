@@ -17,7 +17,7 @@ const Signup = () => {
     const submitHandler = async (e)=>{
       e.preventDefault()
       try {
-        const res = await axios.post('/api/users/signup', form, {withCredentials: true});
+        const res = await axios.post('https://dovault-task-tracker.onrender.com/api/users/signup', form, {withCredentials: true});
         if (res.data.error){
           alert(res.data.error) 
         }

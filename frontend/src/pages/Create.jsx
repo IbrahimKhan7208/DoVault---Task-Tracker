@@ -16,7 +16,7 @@ const Create = () => {
 
   const submitHandler = async (e)=>{
     e.preventDefault()
-    let res = await axios.post('/api/projects/createProject', form)
+    let res = await axios.post('https://dovault-task-tracker.onrender.com/api/projects/createProject', form)
     console.log(res.data)
     navigate('/home')
   }

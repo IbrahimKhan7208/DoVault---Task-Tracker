@@ -2,6 +2,7 @@ const dotenv = require('dotenv')
 dotenv.config()
 const express = require('express')
 const app = express()
+app.set("trust proxy", 1);
 const port = process.env.PORT || 3000
 const connectDB = require('./config/db')
 const userRoutes = require('./routes/userRoute')

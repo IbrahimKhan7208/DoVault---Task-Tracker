@@ -19,14 +19,14 @@ const Home = () => {
   };
 
   const createHandler = async () => {
-    let res = await axios.get("/api/projects/createPage");
+    let res = await axios.get("https://dovault-task-tracker.onrender.com/api/projects/createPage");
     console.log("Data ka Response", res.data);
     navigate("/create", { state: res.data });
   };
 
   useEffect(() => {
     const details = async () => {
-      let res = await axios.get("/api/tasks/projectDetail");
+      let res = await axios.get("https://dovault-task-tracker.onrender.com/api/tasks/projectDetail");
       setProjects(res.data);
       console.log(res.data);
     };
@@ -35,7 +35,7 @@ const Home = () => {
 
   useEffect(() => {
     (async () => {
-      let res = await axios.get("/api/users/home");
+      let res = await axios.get("https://dovault-task-tracker.onrender.com/api/users/home");
       if (res.data.error) {
         navigate("/login");
       }

@@ -16,7 +16,7 @@ const Cards = ({ project, updateProjects }) => {
   const deleteProjectHandler = async () => {
     try {
       if (confirm("Do you want delete this Project?") == true) {
-        await axios.post(`/api/projects/deleteProject/${project._id}`);
+        await axios.post(`https://dovault-task-tracker.onrender.com/api/projects/deleteProject/${project._id}`);
         updateProjects(project._id);
         navigate("/home");
         }
