@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Background from "../components/Background";
 import Header from "../components/Header";
-import axios from "../axiosConfig";
+import axios from "axios"
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const Create = () => {

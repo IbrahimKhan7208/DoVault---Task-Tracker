@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { MdExpandMore } from "react-icons/md";
 import { MdExpandLess } from "react-icons/md";
-import axios from "../axiosConfig";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Cards = ({ project, updateProjects }) => {

@@ -3,22 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-  "frontend": "cd frontend && npm install && npm run dev",
-  "backend": "cd backend && npm install && node app.cjs",
-  "dev": "concurrently \"npm run frontend\" \"npm run backend\"",
-  "build": "cd frontend && npm install && npm run build"
+    "frontend": "cd frontend && npm install && npm run dev",
+    "backend": "cd backend && npm install && nodemon app.js",
+    "dev": "concurrently \"npm run frontend\" \"npm run backend\"",
+    "build": "cd frontend && npm install && npm run build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.5",
-    "bcryptjs": "^3.0.2",
-    "concurrently": "^9.1.2",
-    "cors": "^2.8.5",
-    "react-font": "^1.2.1",
-    "react-icons": "^5.5.0",
-    "tailwindcss": "^4.1.5"
+    "concurrently": "^9.1.2"
   }
 }

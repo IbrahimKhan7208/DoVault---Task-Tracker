@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {useNavigate} from "react-router-dom"
 import CountryDropdown from '../components/CountryDropdown'
-import axios from "../axiosConfig";
+import axios from "axios";
 import Font from 'react-font'
 
 

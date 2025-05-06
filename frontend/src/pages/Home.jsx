@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "../axiosConfig";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { RiAddLargeFill } from "react-icons/ri";
 import Background from "../components/Background";
