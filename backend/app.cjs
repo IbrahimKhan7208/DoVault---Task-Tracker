@@ -50,9 +50,10 @@ console.log('Using static path:', staticPath);
 
 app.use(express.static(staticPath));
 
-app.get("*", (req, res) => {
+app.get("/*", (req, res) => {
   res.sendFile(path.join(staticPath, 'index.html'));
 });
+
 
 app.listen(port, () => {
   connectDB()
